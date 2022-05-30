@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,6 +30,17 @@ public class Etudiant {
 	private String email; 
 	private String telephone; 
 	private String anneeEtude;
+	
+	//@ManyToOne
+	
+	public Etudiant(@NonNull String nom, @NonNull String prenom, String email, String telephone, String anneeEtude) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.anneeEtude = anneeEtude;
+	}
 	
 	 
 }

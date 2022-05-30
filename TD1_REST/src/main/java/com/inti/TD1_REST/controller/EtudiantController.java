@@ -22,7 +22,6 @@ public class EtudiantController
 	@GetMapping("/test")
 	public String test()
 	{
-		
 		return "Hello World!";
 	}
 	
