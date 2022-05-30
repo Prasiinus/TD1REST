@@ -46,6 +46,7 @@ public class Etudiant {
     @JoinTable(name="Prof_Etudiants",
 	joinColumns = @JoinColumn(name="idEtu"),
 	inverseJoinColumns = @JoinColumn(name="idProf"))
+	@JsonIgnore
     private List<Professeur> listeProf;
 	
 	public Etudiant(String nom, String prenom, String email, String telephone, String anneeEtude) {
