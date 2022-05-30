@@ -11,6 +11,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,8 +36,15 @@ public class Professeur {
     @JoinTable(name="Prof_Etudiants",
 	joinColumns = @JoinColumn(name="idProf"),
 	inverseJoinColumns = @JoinColumn(name="idEtu"))
+	@JsonIgnore
     private List<Etudiant> listeEtu;
 	
+	@ManyToMany
+    @JoinTable(name="Prof_Ecole",
+	joinColumns = @JoinColumn(name="idProf"),
+	inverseJoinColumns = @JoinColumn(name="idEcole"))
+	@JsonIgnore
+    private List<Ecole> listeEcole;
 	
 	public Professeur(String nom, String prenom, double salaire) {
 		super();

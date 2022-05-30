@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,6 +38,13 @@ public class Ecole {
 	 @OneToMany(mappedBy = "ecole")
 	@JsonIgnore
 	 private List<Etudiant> listeEtudiant;
+	 
+	 @ManyToMany
+	    @JoinTable(name="Prof_Ecole",
+		joinColumns = @JoinColumn(name="idEcole"),
+		inverseJoinColumns = @JoinColumn(name="idProf"))
+		@JsonIgnore
+	    private List<Professeur> listeProf;
 
 	public Ecole(String nom, String adresse, String cp, String ville) {
 		super();
