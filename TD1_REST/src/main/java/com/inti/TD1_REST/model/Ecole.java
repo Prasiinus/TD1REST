@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,17 +21,33 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Table
 @Data
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
+@NoArgsConstructor  @AllArgsConstructor
 public class Ecole { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private @NonNull String nom; 
+	private String nom; 
 	private String adresse;
 	private String cp;
 	private String ville;
 	
-	 @OneToMany
+	 @OneToMany(mappedBy = "ecole")
+	@JsonIgnore
 	 private List<Etudiant> listeEtudiant;
+
+	public Ecole(String nom, String adresse, String cp, String ville) {
+		super();
+		this.nom = nom;
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+	}
+
+	@Override
+	public String toString() {
+		return "Ecole [id=" + id + ", nom=" + nom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + "]";
+	}
+	 
+	 
 }
