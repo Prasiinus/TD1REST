@@ -11,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,12 +37,11 @@ public class EtudiantController
 	}
 	
 	@PostMapping("/saveEtu")
-	public String saveEtudiants()
+	public ResponseEntity<Etudiant> saveEtudiant(@RequestBody Etudiant etudiant) 
 	{
-		Etudiant e = new Etudiant("jean", "claude");
-		etudiantRepository.save(e);
-		
-		return "etudiant saved";
-		
+	
+		return new ResponseEntity<Etudiant>(etudiantRepository.save(etudiant), HttpStatus.CREATED);
 	}
+	
+	
 }

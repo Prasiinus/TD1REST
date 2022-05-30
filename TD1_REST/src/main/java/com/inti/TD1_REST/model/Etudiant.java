@@ -19,14 +19,14 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Table
 @Data
-@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class Etudiant {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private @NonNull String nom;
-	private @NonNull String prenom; 
+	private String nom;
+	private String prenom; 
 	private String email; 
 	private String telephone; 
 	private String anneeEtude;
