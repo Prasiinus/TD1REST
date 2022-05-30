@@ -29,6 +29,6 @@ public class Ecole {
 	private String cp;
 	private String ville;
 	
-//	 @OneToMany(mappedBy = "Etudiant")
-//	 private List<Etudiant> listeEtudiant;
+	 @OneToMany
+	 private List<Etudiant> listeEtudiant;
 }

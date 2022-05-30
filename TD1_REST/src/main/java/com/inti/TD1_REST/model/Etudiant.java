@@ -31,9 +31,10 @@ public class Etudiant {
 	private String telephone; 
 	private String anneeEtude;
 	
-	//@ManyToOne
+	@ManyToOne
+	private Ecole ecole;
 	
-	public Etudiant(@NonNull String nom, @NonNull String prenom, String email, String telephone, String anneeEtude) {
+	public Etudiant(String nom, String prenom, String email, String telephone, String anneeEtude) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
