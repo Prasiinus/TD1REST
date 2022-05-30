@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @Table
 @Data
 @NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
-public class Ecole {
+public class Ecole { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
