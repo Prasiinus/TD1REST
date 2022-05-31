@@ -12,10 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 
-
-//	@Query("FROM Etudiant etu, Ecole eco WHERE etu.ecole_id=eco.id	AND eco.nom=NDA")
-//	Etudiant findEtudiantInSchool();
-	
 	@Query(value = "select*from etudiant where ecole_id=:idEcole", nativeQuery = true)
 	List<Etudiant> findByIdEcole (@Param("idEcole")int idEcole);
 }
