@@ -94,4 +94,14 @@ public class EtudiantController
 	return "Student deleted";
 	
 	}
+	
+	@GetMapping("/listEtuBySchool/{idEcole}")
+	public ResponseEntity<List<Etudiant>> listEtuBySchool(@PathVariable int idEcole)
+	{
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByIdEcole(idEcole), HttpStatus.OK);
+		
+	}
+	
+	
+	
 }
