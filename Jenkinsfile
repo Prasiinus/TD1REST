@@ -16,7 +16,7 @@ pipeline {
                 //sh "mvn clean"
 
                 // To run Maven on a Windows agent, use
-                dir('Jenkins') {
+               // dir('Jenkins') {
                     bat "mvn -Dmaven.test.failure.ignore=true clean"
                 }
                 
@@ -26,7 +26,7 @@ pipeline {
         stage('Test') {
             steps {
                 // To run Maven on a Windows agent, use
-                dir('Jenkins') {
+              //  dir('Jenkins') {
                     bat "mvn -Dmaven.test.failure.ignore=true test"
                 }
                 
@@ -35,7 +35,7 @@ pipeline {
         stage('Install') {
             steps {
                 // To run Maven on a Windows agent, use
-                dir('Jenkins') {
+              //  dir('Jenkins') {
                     bat "mvn -Dmaven.test.failure.ignore=true install"
                 }
                 
