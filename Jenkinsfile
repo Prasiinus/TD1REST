@@ -18,7 +18,7 @@ pipeline {
                 // To run Maven on a Windows agent, use
                // dir('Jenkins') {
                     bat "mvn -Dmaven.test.failure.ignore=true clean"
-                }
+                //}
                 
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                 // To run Maven on a Windows agent, use
               //  dir('Jenkins') {
                     bat "mvn -Dmaven.test.failure.ignore=true test"
-                }
+             //   }
                 
             }
         }
