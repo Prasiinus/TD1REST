@@ -58,4 +58,14 @@ public class EcoleController {
 	
 	}
 
+	
+	@GetMapping("/SchoolByEmail/{email}")
+	public Ecole getSchoolByEmail(@PathVariable String email)
+	{
+		return ecoleRepository.findSchoolByEmail(email);
+	}
+	
+	
+	
+	
 }

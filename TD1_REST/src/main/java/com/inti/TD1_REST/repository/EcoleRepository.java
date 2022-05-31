@@ -9,11 +9,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EcoleRepository extends JpaRepository<Ecole, Integer> {
-
-	@Query("FROM Etudiant etu, Ecole eco WHERE etu.ecole_id=eco.id	AND eco.nom=NDA")
-	Etudiant findEtudiantInSchool();
+public interface EcoleRepository extends JpaRepository<Ecole, Integer> 
+{
+	@Query(value = "select eco.* from etudiant etu, ecole eco where etu.ecole_id = eco.id and etu.email=:mail", nativeQuery = true)
+			Ecole findSchoolByEmail(@Param("mail")String mail);
 	
-	@Query("From etudiant etu, ecole eco WHERE etu.ecole_id = eco.id AND ville=RBX")
-	Etudiant findEtudiantFromRBX();
+//	@Query("From etudiant etu, ecole eco WHERE etu.ecole_id = eco.id AND ville=RBX")
+//	Etudiant findEtudiantFromRBX();
 }
