@@ -14,4 +14,7 @@ public interface EcoleRepository extends JpaRepository<Ecole, Integer>
 	@Query(value = "select eco.* from etudiant etu, ecole eco where etu.ecole_id = eco.id and etu.email=:mail", nativeQuery = true)
 			Ecole findSchoolByEmail(@Param("mail")String mail);
 	
+	@Query(value = "select eco.*from etudiant etu, ecole eco where etu.ecole_id=eco.id and etu.nom=:nom and etu.prenom=:prenom", nativeQuery = true)
+	Ecole findSchoolByStudentName(@Param("nom")String nom, @Param("prenom")String prenom);
+	
 }

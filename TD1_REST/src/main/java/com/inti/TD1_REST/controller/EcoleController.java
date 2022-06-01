@@ -33,7 +33,7 @@ public class EcoleController {
 	
 	@PostMapping("/saveEcole")
 	public ResponseEntity<Ecole> saveEcole(@RequestBody Ecole ecole) 
-	{
+	{   
 	
 		return new ResponseEntity<Ecole>(ecoleRepository.save(ecole), HttpStatus.CREATED);
 	}
@@ -65,6 +65,11 @@ public class EcoleController {
 		return ecoleRepository.findSchoolByEmail(email);
 	}
 	
+	@GetMapping("/SchoolByStudentName/{nom}/{prenom}")
+	public Ecole getSchoolStudentName(@PathVariable String nom, @PathVariable String prenom)
+	{
+		return ecoleRepository.findSchoolByStudentName(nom, prenom);
+	}
 	
 	
 	
