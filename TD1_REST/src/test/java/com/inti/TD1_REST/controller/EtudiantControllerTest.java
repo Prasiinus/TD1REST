@@ -61,7 +61,7 @@ public class EtudiantControllerTest {
 			mockMvc.perform(get("/etudiantsInLyon"))
 				.andExpect(status().isOk());
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();   
 		}	
 	}
 
