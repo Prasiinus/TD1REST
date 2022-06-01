@@ -102,6 +102,13 @@ public class EtudiantController
 		
 	}
 	
+	@GetMapping("/etudiantsInLyon")
+	public ResponseEntity<List<Etudiant>> getAllEtudiantsInLyon()
+	{
+		return new ResponseEntity<List<Etudiant>>(etudiantRepository.findByVille(), HttpStatus.OK);
+		
+	}
+	
 	
 	
 }
