@@ -78,4 +78,18 @@ public class EtudiantRepositoryTests
 		//assertThat(listeEtudiant).hasSize((int) etudiantRepository.count());
 		assertThat(listeEtudiant.get(0).getEcole().getVille()).isEqualTo("RBX");
 	}
+	
+	@Test
+	public void testGetAllStudentsByPorf()
+	{
+		//GIVEN
+		      int idProf = 1;  
+		//WHEN
+		List<Etudiant> listeEtudiant = etudiantRepository.findByProf(idProf);
+		
+		//THEN
+		assertThat(listeEtudiant).isNotEmpty();
+		//assertThat(listeEtudiant).hasSize((int) etudiantRepository.count());
+		//assertThat(listeEtudiant.get(0).getEcole().getVille()).isEqualTo("RBX");
+	}
 }

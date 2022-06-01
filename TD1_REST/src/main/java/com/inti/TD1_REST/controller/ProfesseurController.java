@@ -2,7 +2,7 @@ package com.inti.TD1_REST.controller;
 
 import java.util.List;
 
-
+import com.inti.TD1_REST.model.Ecole;
 import com.inti.TD1_REST.model.Professeur;
 
 import com.inti.TD1_REST.repository.ProfesseurRepository;
@@ -56,6 +56,12 @@ public class ProfesseurController {
 	
 	professeurRepository.deleteById(id);
 	return "prof deleted";
+	 
+	}
 	
+	@GetMapping("/sortSalaireProfBySchool/{id}")
+	public List<Professeur> getSortSalaireProfBySchool(@PathVariable int id)
+	{
+		return professeurRepository.sortSalaireProfBySchool(id);
 	}
 }
