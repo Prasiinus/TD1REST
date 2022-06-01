@@ -55,7 +55,7 @@ public class EtudiantRepositoryTests
 	public void testGetAllStudentsInLyon()
 	{
 		//GIVEN
-		
+		  
 		//WHEN
 		List<Etudiant> listeEtudiant = etudiantRepository.findByVille();
 		
